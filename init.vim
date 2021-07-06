@@ -31,9 +31,12 @@ if !has('nvim')
 endif
 
 call dein#add('sainnhe/sonokai')
+call dein#add('nvim-lua/popup.nvim')
+call dein#add('nvim-lua/plenary.nvim')
 call dein#add("nvim-telescope/telescope.nvim")
 call dein#add("neovim/nvim-lspconfig")
 call dein#add("nvim-lua/completion-nvim")
+call dein#add("norcalli/snippets.nvim")
 " }}}
 
 " Finalize plugin loader -------- {{{
@@ -45,6 +48,8 @@ endif
 " }}}
 
 " Load general configuration -------- {{{
+let mapleader = "`"
+
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
@@ -54,7 +59,6 @@ augroup END
 set autochdir
 set autoindent
 set autowriteall
-set background=dark
 set backspace=indent,eol,start
 set backupdir=~/.config/nvim/var/backups
 set cindent

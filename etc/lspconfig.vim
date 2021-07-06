@@ -1,3 +1,5 @@
+" See: https://github.com/neovim/nvim-lspconfig
+" Lua config -------- {{{
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -43,3 +45,4 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
+" }}}
