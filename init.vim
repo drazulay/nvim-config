@@ -38,6 +38,7 @@ call dein#add('nvim-treesitter/nvim-treesitter', {
 		\ })
 
 " LSP
+call dein#add('mattn/vim-lsp-settings')
 call dein#add('neovim/nvim-lspconfig')
 call dein#add('ray-x/lsp_signature.nvim')
 call dein#add('nvim-lua/lsp-status.nvim')
