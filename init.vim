@@ -12,17 +12,15 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
-
 " Initialize plugin loader -------- {{{
-set runtimepath+=~/.config/nvim/var/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.config/nvim/var/repos/github.com/Shougo/dein.vim
 
 " Apparently required by dein
 filetype plugin indent on
 syntax enable
 
-call dein#begin("~/config/nvim/")
+call dein#begin("~/.config/nvim/var")
 " }}}
-
 " Load plugins -------- {{{
 call dein#add("Shougo/dein.vim")
 if !has('nvim')
@@ -30,15 +28,31 @@ if !has('nvim')
   call dein#add('roxma/vim-hug-neovim-rpc')
 endif
 
-call dein#add('sainnhe/sonokai')
-call dein#add('nvim-lua/popup.nvim')
+" Misc dependencies
 call dein#add('nvim-lua/plenary.nvim')
-call dein#add("nvim-telescope/telescope.nvim")
-call dein#add("neovim/nvim-lspconfig")
-call dein#add("nvim-lua/completion-nvim")
-call dein#add("norcalli/snippets.nvim")
-" }}}
+call dein#add('nvim-lua/popup.nvim')
 
+" Parser
+call dein#add('nvim-treesitter/nvim-treesitter', {
+		\ 'hook_post_update': ':TSUpdate'
+		\ })
+
+" LSP
+call dein#add('neovim/nvim-lspconfig')
+call dein#add('ray-x/lsp_signature.nvim')
+call dein#add('nvim-lua/lsp-status.nvim')
+
+" Filesystem
+call dein#add('nvim-telescope/telescope.nvim')
+
+" Completions
+call dein#add('hrsh7th/vim-vsnip')
+call dein#add('hrsh7th/nvim-compe')
+
+" Theme
+call dein#add('sainnhe/gruvbox-material')
+call dein#add('liuchengxu/eleline.vim')
+" }}}
 " Finalize plugin loader -------- {{{
 call dein#end()
 
@@ -46,7 +60,6 @@ if dein#check_install()
  call dein#install()
 endif
 " }}}
-
 " Load general configuration -------- {{{
 let mapleader = "`"
 
@@ -71,11 +84,8 @@ set ignorecase
 set incsearch
 set linebreak
 set number
-set ruler
 set shiftwidth=2
 set showbreak=+++
-set showmatch
-set showtabline=2
 set smartcase
 set smartindent
 set smarttab
@@ -84,16 +94,15 @@ set spell
 set textwidth=80
 set undolevels=1000
 set virtualedit=all
-set visualbell
-
-" In case modules have messed this up
-filetype plugin indent on
-syntax enable
 " }}}
-
 " Load plugin configuration -------- {{{
-source etc/sonokai.vim
-source etc/telescope.vim
-source etc/lspconfig.vim
-source etc/completion.vim
+source ~/.config/nvim/etc/telescope.vim
+source ~/.config/nvim/etc/treesitter.vim
+source ~/.config/nvim/etc/lspconfig.vim
+source ~/.config/nvim/etc/lsp-status.vim
+source ~/.config/nvim/etc/compe.vim
+source ~/.config/nvim/etc/vsnip.vim
+
+" Source theme last
+source ~/.config/nvim/etc/theme.vim
 " }}}
