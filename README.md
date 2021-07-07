@@ -2,6 +2,8 @@
 
 A minimalist neovim setup that uses neovim's native Language Server Protocol interface to provide the intuitive code completion and inspection we know and love.
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/784794/124812020-67bb0c00-df63-11eb-9a11-317318d8b643.gif)
+
 ## Installing
 
 ```
