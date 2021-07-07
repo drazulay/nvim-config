@@ -38,8 +38,8 @@ call dein#add('nvim-treesitter/nvim-treesitter', {
 		\ })
 
 " LSP
-" call dein#add('mattn/vim-lsp-settings')
 call dein#add('neovim/nvim-lspconfig')
+call dein#add('kabouzeid/nvim-lspinstall')
 call dein#add('ray-x/lsp_signature.nvim')
 call dein#add('nvim-lua/lsp-status.nvim')
 
@@ -70,7 +70,7 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-set autochdir
+"set autochdir " Disabled until I have keybindings in Telescope to up/down dirs
 set autoindent
 set autowriteall
 set backspace=indent,eol,start
